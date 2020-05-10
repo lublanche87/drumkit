@@ -1,55 +1,82 @@
+//Detecting buttons clicked
+
 var numberOfDrum = document.querySelectorAll(".drum").length;
 
 for (var i = 0; i < numberOfDrum; i++) {
 
+
   document.querySelectorAll(".drum")[i].addEventListener("click", function() {
 
     var buttonInnerHtml = this.innerHTML;
-
-    switch (buttonInnerHtml) {
-      case "ㅁ":
-        var tom1 = new Audio('sounds/tom-1.mp3');
-        tom1.play();
-        break;
-
-      case "ㄴ":
-        var tom2 = new Audio('sounds/tom-2.mp3');
-        tom2.play();
-        break;
-
-      case "ㅇ":
-        var tom3 = new Audio('sounds/tom-3.mp3');
-        tom3.play();
-        break;
-
-      case "ㄹ":
-        var tom4 = new Audio('sounds/tom-4.mp3');
-        tom4.play();
-        break;
-
-      case "ㅓ":
-        var crash = new Audio('sounds/crash.mp3');
-        crash.play();
-        break;
-
-
-      case "ㅏ":
-        var kickBass = new Audio('sounds/kick-bass.mp3');
-        kickBass.play();
-        break;
-
-      case "ㅣ":
-        var snare = new Audio('sounds/snare.mp3');
-        snare.play();
-        break;
-
-      default:
-        console.log(buttonInnerHtml);
-
-    }
-
-  });
-
+    makeSound(buttonInnerHtml);
+  })
 }
-// var audio = new Audio('sounds/tom-1.mp3');
-// audio.play();
+
+//Detecting keyboard pressed
+
+document.addEventListener("keydown", function(event) {
+  makeSound(event.key);
+});
+
+
+
+//Checking and making sounds
+
+function makeSound(key) {
+
+  switch (key) {
+    case "ㅁ":
+    case "a":
+    case "A":
+      var tom1 = new Audio('sounds/tom-1.mp3');
+      tom1.play();
+      break;
+
+    case "ㄴ":
+    case "s":
+    case "S":
+      var tom2 = new Audio('sounds/tom-2.mp3');
+      tom2.play();
+      break;
+
+    case "ㅇ":
+    case "d":
+    case "D":
+      var tom3 = new Audio('sounds/tom-3.mp3');
+      tom3.play();
+      break;
+
+    case "ㄹ":
+    case "f":
+    case "F":
+      var tom4 = new Audio('sounds/tom-4.mp3');
+      tom4.play();
+      break;
+
+    case "ㅓ":
+    case "j":
+    case "J":
+      var crash = new Audio('sounds/crash.mp3');
+      crash.play();
+      break;
+
+
+    case "ㅏ":
+    case "k":
+    case "K":
+      var kickBass = new Audio('sounds/kick-bass.mp3');
+      kickBass.play();
+      break;
+
+    case "ㅣ":
+    case "l":
+    case "L":
+      var snare = new Audio('sounds/snare.mp3');
+      snare.play();
+      break;
+
+    default:
+      console.log(buttonInnerHtml);
+
+  }
+}
